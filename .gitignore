@@ -38,3 +38,6 @@ jspm_packages
 
 # System
 .DS_Store
+
+# Temp folder
+dist
