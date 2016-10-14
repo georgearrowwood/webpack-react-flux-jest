@@ -2,7 +2,10 @@ import React from 'react';
 import { render } from 'react-dom'
 import { Router, Route, Link, browserHistory} from 'react-router'
 
-import style from './style.css'
+// var routes = require('./routes');
+
+
+// import style from './style.css'
 // import Home from './components/Home.js';
 
 let App = React.createClass({
@@ -11,7 +14,7 @@ let App = React.createClass({
       <div className="nav">
         <Link to="app">App</Link>
         <Link to="home">Home</Link>
-        App12
+        App123
       </div>
     );
   }
@@ -30,18 +33,32 @@ let Home = React.createClass({
   }
 });
 
-let routes = (
+var routes = (
   <Router history={browserHistory}>
     <Route path="/" component={App}/>
     <Route path="react-webpack/dist" component={App}/>
     <Route path="app" component={App}/>
     <Route path="home" component={Home}/>
-       {/*<Route path="users" component={Users}>
-      //   <Route path="/user/:userId" component={User}/>
-      // </Route>
-    //<Route path="*" component={NoMatch}/> </Route> */}
-
   </Router>
 );
 
-render(routes, document.getElementById('react'))
+
+module.exports.render = (path, cb) => {
+
+  var router = Router.create({
+    routes: routes,
+    location: path
+  });
+
+  var content = "";
+
+  // Run the router, and render the result to string
+  router.run(function (Handler, state) {
+    content = React.renderToString(React.createElement(Handler, {routerState: state, deviceType: deviceType, environment: "server"}), null);
+    console.log('rended');
+    cb(content)
+  });
+
+
+  // render(routes, document.getElementById('react'))
+}

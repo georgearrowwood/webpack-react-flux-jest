@@ -1,14 +1,30 @@
-var React = require('react')
-var Router = require('react-router')
-var Route = Router.Route
-var DefaultRoute = Router.DefaultRoute
-var Root = require('./components/Root.jsx')
-var Index = require('./components/Index.jsx')
+import React from 'react'
+import { Router, Route, Link, browserHistory } from 'react-router'
 
-var Routes = (
-  <Route handler={Root} path='/'>
-    <DefaultRoute handler={Index} />
-  </Route>
+import App from './_app'
+import Home from './_home'
+
+module.exports = (
+  <Router history={browserHistory}>
+    <Route path="/" component={Home}/>
+    <Route path="app" component={App} />
+    <Route path="home" component={Home} />
+
+  </Router>
 )
-
-module.exports = Routes
+//
+// import React from 'react'
+// import { Route, IndexRoute } from 'react-router'
+// import App from './App'
+// // import About from './About'
+// // import Repos from './Repos'
+// // import Repo from './Repo'
+// import Home from './Home'
+//
+// module.exports = (
+//   <Route path="/" component={App}>
+//     <IndexRoute component={Home}/>
+//     <Route path="/home" component={Home}/>
+//     <Route path="/app" component={App}/>
+//   </Route>
+// )

@@ -1,34 +1,26 @@
-var webpack = require('webpack');
-var HtmlWebpackPlugin = require('html-webpack-plugin')
+const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const path = require('path');
 
-var config = {
-  context: __dirname + "/app",
+
+const config = {
+  context: path.resolve(__dirname, '../app'),
   entry: [
     "./entry.js",
   ],
   output: {
     filename: "bundle.js",
-    path: __dirname + "/dist",
+    path: path.resolve(__dirname, '../dist'),
   },
   module: {
     loaders: [
-      {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        loader: 'babel-loader',
-        query: {
-          presets: ['react', 'es2015']
-        }
-      },
-      {
-        test: /\.css$/,
-        loader: "style!css"
-      }
+      { test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/ },
+      { test: /\.css$/, loader: "style!css" }
     ],
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: __dirname + '/app/index.html',
+      template: path.resolve(__dirname, '../app/index.html'),
       filename: 'index.html',
       inject: 'body'
     }),
