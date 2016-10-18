@@ -10,12 +10,14 @@ var config = require('./webpack.dev');
 
 var port = process.env.HOT_LOAD_PORT || 8888;
 
-new WebpackDevServer(webpack(config), {
-  contentBase: 'http://localhost:' + port,
-  publicPath: config.output.publicPath,
-  noInfo: true,
-  hot: true
-}).listen(port, 'localhost', function (err, result) {
+// var cc = {hot: true,
+// // path: path.join(__dirname, '../dist'),
+// filename: 'bundle.js',
+// publicPath: "http://localhost:8888/dist/"}
+
+
+new WebpackDevServer(webpack(config), config.devServer)
+  .listen(port, 'localhost', function (err, result) {
   if (err) {
     console.log(err);
   }

@@ -1,40 +1,32 @@
-var React = require('react');
-var render = require('react-dom');
+import { AppContainer } from 'react-hot-loader';
+import React from 'react'
+import {render} from 'react-dom'
+import Router from 'react-router/lib/Router';
+import match from 'react-router/lib/match';
+import browserHistory from 'react-router/lib/browserHistory';
 
-var Router = require('react-router').Router;
-var Route = require('react-router').Route;
-var Link = require('react-router').Link;
+// var Router = require('react-router').Router;
+// var Route = require('react-router').Route;
+// var Link = require('react-router').Link;
 
-var routes = require('./routes');
+const routes = require ('./routes').default;
+// import Home from './home';
+//
+// // import style from './style.css'
+// // import Home from './components/Home.js';
+//
+var container = document.getElementById('app')
+//
 
-// import style from './style.css'
-// import Home from './components/Home.js';
+render(<AppContainer>
+<Router history={browserHistory} routes={routes} />
+</AppContainer>, container)
+//
 
-let App = React.createClass({
-  render() {
-    return (
-      <div className="nav">
-        <Link to="app">App</Link>
-        <Link to="home">Home</Link>
-        App123
-      </div>
-    );
-  }
-});
+if (module.hot) {
 
-
-let Home = React.createClass({
-  render() {
-    return (
-      <div className="nav">
-        <Link to="app">App</Link>
-        <Link to="home">Home</Link>
-        Hoome
-      </div>
-    );
-  }
-});
-
-
-
-render(routes, document.getElementById('react'))
+    module.hot.accept('./routes', () => {
+      // const Rr = require('./routes').default
+      render(<Router key={Date.now()} history={browserHistory} routes={require('./routes').default} />, container)
+    });
+}
