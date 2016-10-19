@@ -1,16 +1,16 @@
-const webpack = require('webpack');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const path = require('path');
+import webpack from 'webpack';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
+import path from 'path';
 
 
 const config = {
-  context: path.resolve(__dirname, '../app'),
+  context: path.resolve(__dirname, '../../app'),
   entry: [
-    "../app/client.js",
+    "./client.js",
   ],
   output: {
     filename: "bundle.js",
-    path: path.resolve(__dirname, '../dist'),
+    path: path.resolve(__dirname, '../../dist'),
   },
   module: {
     loaders: [
@@ -20,20 +20,17 @@ const config = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, '../app/index.html'),
+      template: path.resolve(__dirname, '../../app/index.html'),
       filename: 'index.html',
       inject: 'body'
-    }),
-    new webpack.optimize.UglifyJsPlugin({
-      compress: {
-        warnings: false
-      }
     }),
     new webpack.DefinePlugin({
       'process.env': {
         'NODE_ENV': JSON.stringify('production')
       }
-    })
+    }),
+    new webpack.optimize.UglifyJsPlugin()
   ]
 };
-module.exports = config;
+
+export default config;
