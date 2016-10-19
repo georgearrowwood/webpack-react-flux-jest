@@ -1,12 +1,12 @@
 // import React from 'react'
 import React, { Component } from 'react';
-import { Router, Route, Link, browserHistory } from 'react-router'
+import { Router, Route, Link, browserHistory,  } from 'react-router'
 
-import App from './app'
-import Home from './home'
-import Main from './main'
+import App from './components/app'
+import Home from './components/home'
+import Main from './components/main'
 
-const routes =  {
+export default {
   path: '',
   component: Main,
   childRoutes: [
@@ -15,20 +15,3 @@ const routes =  {
     { path: '/home', component: Home}
   ]
 };
-
-export default routes;
-
-
-// class Root extends Component {
-//   render() {
-//     return (
-//     <div> aa1
-//     <Router history={browserHistory}>
-//       <Route path="/" component={Home}/>
-//       <Route path="app" component={App} />
-//       <Route path="home" component={Home} />
-//     </Router>
-//   </div>
-//     )
-//   }
-// }

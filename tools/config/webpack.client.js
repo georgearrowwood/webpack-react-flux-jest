@@ -1,5 +1,4 @@
 import webpack from 'webpack';
-import HtmlWebpackPlugin from 'html-webpack-plugin';
 import path from 'path';
 
 
@@ -19,11 +18,6 @@ const config = {
     ],
   },
   plugins: [
-    new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, '../../app/index.html'),
-      filename: 'index.html',
-      inject: 'body'
-    }),
     new webpack.DefinePlugin({
       'process.env': {
         'NODE_ENV': JSON.stringify('production')

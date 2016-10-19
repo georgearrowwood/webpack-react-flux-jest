@@ -1,11 +1,11 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React, { Component } from 'react';
 
-let Login = React.createClass({
-
+export default class Home extends Component {
   render() {
-    return(<div>Welcome to login</div>);
+    return (
+      <div>
+        Home134
+      </div>
+    );
   }
-});
-
-export default Login;
+};
