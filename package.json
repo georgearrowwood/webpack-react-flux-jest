@@ -4,11 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "server:run": "NODE_ENV=production config=production node server",
     "server:build": "NODE_ENV=production babel-node tools/buildServer.js",
     "client:build": "NODE_ENV=production babel-node tools/buildClient.js",
-    "client:dev": "NODE_ENV=development babel-node tools/hotLoadClient.js",
+    "client:watch": "NODE_ENV=development babel-node tools/hotLoadClient.js",
     "server:watch": "nodemon --watch server --exec npm run server:dev",
-    "server:dev": "NODE_ENV=development node_modules/babel-cli/bin/babel-node.js server"
+    "server:dev": "NODE_ENV=development config=development node_modules/babel-cli/bin/babel-node.js server"
   },
   "author": "",
   "license": "MIT",
@@ -25,6 +26,7 @@
   },
   "dependencies": {
     "babel-loader": "^6.2.5",
+    "ejs": "^2.5.2",
     "express": "^4.14.0",
     "html-webpack-plugin": "^2.22.0",
     "react": "^15.3.2",

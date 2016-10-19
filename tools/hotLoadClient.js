@@ -1,7 +1,7 @@
 import webpack from 'webpack';
 import WebpackDevServer from 'webpack-dev-server';
 
-import config from './webpack.dev';
+import config from './config/webpack.client.dev';
 
 const port = process.env.HOT_LOAD_PORT || 8888;
 

@@ -1,0 +1,12 @@
+<!doctype html>
+<html>
+  <head>
+    <title><%- title %></title>
+  </head>
+  <body>
+    <div id="app"><%- app %></div>
+    <%if ( scriptPath ) { %>
+      <script src="<%- scriptPath %>" defer></script>
+    <% } %>
+  </body>
+</html>
