@@ -4,12 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "server:run": "NODE_ENV=production config=production node server",
+    "server:run": "NODE_ENV=production BABEL_ENV=node config=production nodemon server",
     "server:build": "NODE_ENV=production babel-node tools/buildServer.js",
     "client:build": "NODE_ENV=production babel-node tools/buildClient.js",
     "client:watch": "NODE_ENV=development babel-node tools/hotLoadClient.js",
     "server:watch": "nodemon --watch server --watch app --exec npm run server:dev",
-    "server:dev": "NODE_ENV=development config=development node_modules/babel-cli/bin/babel-node.js server"
+    "server:dev": "NODE_ENV=development BABEL_ENV=node config=development node_modules/babel-cli/bin/babel-node.js server"
   },
   "author": "",
   "license": "MIT",
@@ -19,13 +19,16 @@
     "babel-preset-es2015": "^6.16.0",
     "babel-preset-react": "^6.16.0",
     "babel-preset-stage-0": "^6.16.0",
+    "css-loader": "^0.25.0",
     "react-hot-loader": "^3.0.0-beta.6",
+    "style-loader": "^0.13.1",
     "webpack": "^1.13.2",
     "webpack-dev-server": "^1.16.2",
     "webpack-hot-middleware": "^2.13.0"
   },
   "dependencies": {
     "babel-loader": "^6.2.5",
+    "babel-plugin-transform-require-ignore": "0.0.2",
     "ejs": "^2.5.2",
     "express": "^4.14.0",
     "react": "^15.3.2",
