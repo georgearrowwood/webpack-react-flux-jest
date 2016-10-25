@@ -3,10 +3,10 @@ import Layout from './layout';
 
 export default class Home extends Component {
   render() {
-    return (
-      <Layout>
+    return(
+      <div>
         Home134
-      </Layout>
+      </div>
     );
   }
 };
