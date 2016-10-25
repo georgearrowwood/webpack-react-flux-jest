@@ -2,11 +2,14 @@
 <html>
   <head>
     <title><%- title %></title>
+    <%if (typeof styleUrl != 'undefined') { %>
+      <link rel="stylesheet" type="text/css" href="<%- styleUrl %>">
+    <% } %>
   </head>
   <body>
     <div id="app"><%- app %></div>
-    <%if ( scriptPath ) { %>
-      <script src="<%- scriptPath %>" defer></script>
+    <%if (typeof scriptUrl != 'undefined') { %>
+      <script src="<%- scriptUrl %>" defer></script>
     <% } %>
   </body>
 </html>

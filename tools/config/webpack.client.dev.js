@@ -14,6 +14,13 @@ config.entry = [
   "./client-dev.js",
 ],
 
+config.module = {
+  loaders: [
+    {test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/},
+    {test: /\.css$/, loader: "style-loader!css-loader"}
+  ],
+},
+
 config.devServer = {
   hot: true,
   path: path.join(__dirname, '../../dist'),
@@ -24,6 +31,7 @@ config.devServer = {
 config.output.publicPath = host + "/dist/";
 
 config.plugins = [
+  config.plugins[0],
   new webpack.HotModuleReplacementPlugin()
 ];
 

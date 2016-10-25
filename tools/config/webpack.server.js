@@ -28,8 +28,19 @@ export default {
 
   module: {
     loaders: [
-      { test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader?presets[]=es2015&presets[]=react' }
+      { test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader' }
     ]
-  }
+  },
+
+  plugins: [
+    new webpack.DefinePlugin({
+      'process.env': {
+        'NODE_ENV': 'production',
+        'PORT': 3000,
+        // 'BABEL_ENV': 'node',
+        'config': 'production'
+      }
+    })
+  ]
 
 }
