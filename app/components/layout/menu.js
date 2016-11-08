@@ -8,8 +8,8 @@ export default class Menu extends Component {
     return (
       <div className="nav">
         <Link to="/">Home</Link>
-        <Link to="/app">App</Link>
         <Link to="/home">Home2</Link>
+        <Link to="/products">Products</Link>
       </div>
     )
   }
