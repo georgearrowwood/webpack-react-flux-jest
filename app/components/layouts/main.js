@@ -1,8 +1,8 @@
-require('./style.css');
+require('./main.css');
 
 import React, { Component } from 'react';
 
-import Menu from './menu';
+import Menu from '../main_menu';
 
 export default class Layout extends Component {
   render() {
