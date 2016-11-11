@@ -29,6 +29,7 @@
     "webpack-dev-server": "^1.16.2"
   },
   "dependencies": {
+    "axios": "^0.15.2",
     "babel-loader": "^6.2.5",
     "babel-plugin-transform-require-ignore": "0.0.2",
     "ejs": "^2.5.2",

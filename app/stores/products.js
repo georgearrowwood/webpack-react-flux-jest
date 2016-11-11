@@ -16,17 +16,7 @@ class ProductsStore extends EventEmitter {
 
   constructor(){
     super();
-    this.dispatchToken = dispatcher.register(this.dispatcherCallback.bind(this))
-    _products = [
-      {
-        id: 0,
-        title: 'Item 1'
-      },
-      {
-        id: 1,
-        title: 'Item 2'
-      }
-    ];
+    this.dispatchToken = dispatcher.register(this.dispatcherCallback.bind(this));
   }
 
   getList(){
@@ -53,6 +43,11 @@ class ProductsStore extends EventEmitter {
     console.log('disp acts', action);
 
     switch (action.action) {
+      case 'product-list':
+        console.log('list a');
+        _list();
+        this.emitChange();
+        break;
       case 'product-add':
         console.log('huh');
         _add(action.product);

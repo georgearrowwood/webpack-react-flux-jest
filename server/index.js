@@ -10,6 +10,12 @@ server.use('/dist', Express.static(path.join(__dirname, '../dist')));
 
 const config = require('../config/' + process.env.config).default;
 
+// Api Routes
+
+server.use('/', require('./api/products'));
+
+// React Part
+
 import React from 'react';
 import { renderToString } from 'react-dom/server';
 import { match, RouterContext } from 'react-router';

@@ -7,7 +7,7 @@ export default class AddProductForm extends Component {
       <div>
         Add Product:
         <div>
-          <input type="text" onChange={this.props.handleTitleChange}/>
+          <input type="text" onChange={this.props.handleTitleChange} value={this.props.titleValue} />
           <button onClick={this.props.addHandle}>
             Add
           </button>

@@ -27,7 +27,7 @@ export default class AddProductFormContainer extends Component {
         title: this.state.title
       }
     });
-    this.state.title = '';
+    this.setState({title: ''});
   }
 
   render(){
@@ -35,6 +35,7 @@ export default class AddProductFormContainer extends Component {
       <AddProductForm
         handleTitleChange={this.handleTitleChange}
         addHandle={this.add}
+        titleValue={this.state.title}
       />
     )
   }
