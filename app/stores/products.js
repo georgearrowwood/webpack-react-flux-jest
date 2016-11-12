@@ -1,5 +1,6 @@
 import {EventEmitter} from 'events';
 import dispatcher from '../dispatcher';
+import productsApi from '../api/products';
 
 let _products = []
 
@@ -10,6 +11,10 @@ function _add(item) {
 
 function _remove(id){
   _products = _products.map(item => item.id !== id);
+}
+
+function _list_fetch(id){
+  productsApi.getList();
 }
 
 class ProductsStore extends EventEmitter {
@@ -43,10 +48,14 @@ class ProductsStore extends EventEmitter {
     console.log('disp acts', action);
 
     switch (action.action) {
-      case 'product-list':
-        console.log('list a');
-        _list();
+      case 'product-data-received':
+        _products = action.products;
+        console.log('recvd');
         this.emitChange();
+        break;
+      case 'product-list-fetch':
+        console.log('list a');
+        _list_fetch();
         break;
       case 'product-add':
         console.log('huh');

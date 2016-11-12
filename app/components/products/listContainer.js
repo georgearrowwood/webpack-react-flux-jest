@@ -2,25 +2,23 @@ import React, { Component } from 'react';
 
 import ProductsList from './list';
 import productsStore from '../../stores/products';
-import productsServices from '../../services/products';
 import dispatcher from '../../dispatcher';
 
-console.log(productsServices);
-
-function getProductsState(){
-  return {products: productsServices.getList()};
+function getProductsList() {
+  return {products: productsStore.getList()};
 }
 
 export default class ProductsContainer extends Component {
 
-  // constructor() {
-  //   super();
-  //   this._onChange = this._onChange.bind(this)
-  // }
+  constructor() {
+    super();
+    this._onChange = this._onChange.bind(this)
+    this.state = getProductsList();
+  }
 
   componentWillMount() {
     dispatcher.dispatch({
-      action: 'product-list'
+      action: 'product-list-fetch'
     });
   }
 
