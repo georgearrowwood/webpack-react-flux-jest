@@ -4,19 +4,6 @@ import productConstants from '../constants/products';
 
 let _products = []
 
-function _create(item) {
-  _products.push(item);
-  console.log('aft add', _products);
-}
-
-function _remove(id){
-  _products = _products.map(item => item.id !== id);
-}
-
-// function _list_fetch(id){
-//   productsApi.getList();
-// }
-
 class ProductsStore extends EventEmitter {
 
   constructor(){
@@ -29,7 +16,6 @@ class ProductsStore extends EventEmitter {
   }
 
   emitChange(){
-    console.log('e c');
     this.emit('change');
   }
 
@@ -46,29 +32,16 @@ class ProductsStore extends EventEmitter {
   dispatcherCallback(action) {
 
     console.log('disp acts', action);
-
     switch(action.actionType) {
-
-      case productConstants.PRODUCTS_CREATE:
-        if (action.title !== '') {
-          _create(title);
-          this.emitChange();
-        }
-        break;
 
       case productConstants.PRODUCTS_LIST_DATA_RECEIVED:
         _products = action.products;
         this.emitChange();
         break;
 
-      case productConstants.PRODUCTS_REMOVE:
-        _remove(action.id);
-        this.emitChange();
-        break;
     }
     return true;
   }
-
 };
 
 export default new ProductsStore();

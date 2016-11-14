@@ -6,13 +6,15 @@ export default {
   /**
    * @param  {string} text
    */
-  create: function(title) {
-    dispatcher.dispatch({
-      actionType: productConstants.PRODUCTS_CREATE,
-      product: {
-        title: title
-      }
-    });
+  create: function(product) {
+    if (product && product.title) {
+      productsApi.create(product)
+        .then(result => {
+          if (result.data.success) {
+            this.fetchList();
+          }
+        })
+    }
   },
 
   fetchList: function() {

@@ -17,8 +17,7 @@ export default class AddProductFormContainer extends Component {
   }
 
   add(e){
-    let id = guid();
-    productsActions.create(this.state.title)
+    productsActions.create({title: this.state.title});
     this.setState({title: ''});
   }
 
