@@ -25,7 +25,8 @@ const config = {
     new ExtractTextPlugin("style.css"),
     new webpack.DefinePlugin({
       'process.env': {
-        'NODE_ENV': JSON.stringify('production')
+        'NODE_ENV': JSON.stringify('production'),
+        'config': JSON.stringify('production')
       }
     }),
     new webpack.optimize.UglifyJsPlugin()

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import ProductsList from './list';
 import productsStore from '../../stores/products';
-import dispatcher from '../../dispatcher';
+import productsActions from '../../actions/products';
 
 function getProductsList() {
   return {products: productsStore.getList()};
@@ -17,9 +17,7 @@ export default class ProductsContainer extends Component {
   }
 
   componentWillMount() {
-    dispatcher.dispatch({
-      action: 'product-list-fetch'
-    });
+    productsActions.fetchList();
   }
 
   _onChange() {

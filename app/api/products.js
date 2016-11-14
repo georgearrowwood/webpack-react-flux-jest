@@ -1,16 +1,9 @@
-import request from './request';
-import dispatcher from '../dispatcher';
+import request from '../utils/request';
 
 export default {
 
   getList: function() {
-    return request.get('http://localhost:8080/api/products')
-      .then(result => {
-        dispatcher.dispatch({
-          action: 'product-data-received',
-          products: result.data.products
-        });
-      })
+    return request.get('/api/products');
   }
 
 }

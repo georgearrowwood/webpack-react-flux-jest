@@ -16,6 +16,7 @@ render(
 
 if (module.hot) {
     module.hot.accept('./routes', () => {
-      render(<Router key={Date.now()} history={browserHistory} routes={require('./routes').default} />, container)
+      // key={Date.now()}
+      render(<Router history={browserHistory} routes={require('./routes').default} />, container)
     });
 }

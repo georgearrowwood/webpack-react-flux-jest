@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import dispatcher from '../../dispatcher';
+import productsActions from '../../actions/products';
 import AddProductForm from './add';
 
 export default class AddProductFormContainer extends Component {
@@ -13,20 +13,12 @@ export default class AddProductFormContainer extends Component {
   }
 
   handleTitleChange(event) {
-    console.log('v:', event.target.value);
     this.setState({title: event.target.value});
   }
 
   add(e){
     let id = guid();
-    console.log('page add');
-    dispatcher.dispatch({
-      action: 'product-add',
-      product: {
-        id: id,
-        title: this.state.title
-      }
-    });
+    productsActions.create(this.state.title)
     this.setState({title: ''});
   }
 
@@ -39,8 +31,4 @@ export default class AddProductFormContainer extends Component {
       />
     )
   }
-}
-
-function guid() {
-  return Math.floor(Math.random() * (1000000 - 10000) + 10000);
 }

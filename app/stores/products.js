@@ -1,10 +1,10 @@
 import {EventEmitter} from 'events';
-import dispatcher from '../dispatcher';
-import productsApi from '../api/products';
+import dispatcher from '../utils/dispatcher';
+import productConstants from '../constants/products';
 
 let _products = []
 
-function _add(item) {
+function _create(item) {
   _products.push(item);
   console.log('aft add', _products);
 }
@@ -13,9 +13,9 @@ function _remove(id){
   _products = _products.map(item => item.id !== id);
 }
 
-function _list_fetch(id){
-  productsApi.getList();
-}
+// function _list_fetch(id){
+//   productsApi.getList();
+// }
 
 class ProductsStore extends EventEmitter {
 
@@ -47,23 +47,22 @@ class ProductsStore extends EventEmitter {
 
     console.log('disp acts', action);
 
-    switch (action.action) {
-      case 'product-data-received':
+    switch(action.actionType) {
+
+      case productConstants.PRODUCTS_CREATE:
+        if (action.title !== '') {
+          _create(title);
+          this.emitChange();
+        }
+        break;
+
+      case productConstants.PRODUCTS_LIST_DATA_RECEIVED:
         _products = action.products;
-        console.log('recvd');
         this.emitChange();
         break;
-      case 'product-list-fetch':
-        console.log('list a');
-        _list_fetch();
-        break;
-      case 'product-add':
-        console.log('huh');
-        _add(action.product);
-        this.emitChange();
-        break;
-      case 'product-remove':
-        _remove(action.articleId);
+
+      case productConstants.PRODUCTS_REMOVE:
+        _remove(action.id);
         this.emitChange();
         break;
     }
