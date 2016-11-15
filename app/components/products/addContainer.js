@@ -8,15 +8,15 @@ export default class AddProductFormContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {title: ''};
-    this.handleTitleChange = this.handleTitleChange.bind(this);
-    this.add = this.add.bind(this);
+    this.onTitleChange = this.onTitleChange.bind(this);
+    this.formSubmitHandler = this.formSubmitHandler.bind(this);
   }
 
-  handleTitleChange(event) {
+  onTitleChange(event) {
     this.setState({title: event.target.value});
   }
 
-  add(e){
+  formSubmitHandler(){
     productsActions.create({title: this.state.title});
     this.setState({title: ''});
   }
@@ -24,8 +24,8 @@ export default class AddProductFormContainer extends Component {
   render(){
     return (
       <AddProductForm
-        handleTitleChange={this.handleTitleChange}
-        addHandle={this.add}
+        handleTitleChange={this.onTitleChange}
+        addHandle={this.formSubmitHandler}
         titleValue={this.state.title}
       />
     )

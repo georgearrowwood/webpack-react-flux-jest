@@ -32,7 +32,17 @@ export default class ProductsContainer extends Component {
     productsStore.removeChangeListener(this._onChange);
   }
 
+  deleteProductHandler(e, id) {
+    e.preventDefault();
+    productsActions.delete(id);
+  }
+
   render() {
-    return <ProductsList products={this.state.products}/>
+    return (
+      <ProductsList
+        products={this.state.products}
+        deleteProductHandler={this.deleteProductHandler}
+      />
+    )
   }
 };

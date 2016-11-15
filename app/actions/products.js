@@ -30,11 +30,16 @@ export default {
   /**
    * @param  {integer} id
    */
-  remove: function(id) {
-    dispatcher.dispatch({
-      actionType: productConstants.PRODUCTS_REMOVE,
-      id: id
-    });
+  delete: function(id) {
+    console.log('d1', id);
+    if (Number.isInteger(id)) {
+      productsApi.delete(id)
+        .then(result => {
+          if (result.data.success) {
+            this.fetchList();
+          }
+        })
+    }
   }
 
 };
