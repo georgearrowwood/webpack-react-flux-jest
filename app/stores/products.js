@@ -30,8 +30,7 @@ class ProductsStore extends EventEmitter {
   }
 
   dispatcherCallback(action) {
-
-    console.log('disp acts', action);
+    // console.log('disp acts', action);
     switch(action.actionType) {
 
       case productConstants.PRODUCTS_LIST_DATA_RECEIVED:
