@@ -1,36 +1,32 @@
 jest.dontMock('./../app/stores/products');
 jest.dontMock('./../app/constants/products');
-jest.dontMock('./../app/actions/products');
+
+import dispatcher from '../app/utils/dispatcher';
+import productStore from '../app/stores/products';
+import productConstants from '../app/constants/products';
 
 describe('TodoStore', function() {
 
-  let productConstants = require('../app/constants/products').default;
-  let dispatcher;
-  let productStore;
   let callback;
-  let actions;
 
   var actionProductsDataReceived = {
     actionType: productConstants.PRODUCTS_LIST_DATA_RECEIVED
   };
 
-  beforeEach(function() {
-    dispatcher = require('../app/utils/dispatcher').default;
-    productStore = require('../app/stores/products').default;
-    // actions = require('../app/actions/products').default;
+  beforeEach(() => {
     callback = dispatcher._callbacks[Object.keys(dispatcher._callbacks)[0]];
   });
 
-  it('registers a callback with the dispatcher', function() {
+  it('registers a callback with the dispatcher', () => {
     expect(Object.keys(dispatcher._callbacks).length).toBe(1);
   });
 
-  it('should initialize with no products items', function() {
+  it('should initialize with no products items', () => {
     var list = productStore.getList();
     expect(list).toEqual([]);
   });
 
-  it('get list with items - directly action call', function() {
+  it('get list with items - directly action call', () => {
     let action = Object.assign({}, actionProductsDataReceived);
     action.products = [
       {id: 1, title: 'test product'}
@@ -40,28 +36,5 @@ describe('TodoStore', function() {
     expect(list.length).toBe(1);
     expect(list[0].title).toEqual('test product');
   });
-
-
-  // it('creates a to-do item', function() {
-  //   callback(actionTodoCreate);
-  //   var all = TodoStore.getAll();
-  //   var keys = Object.keys(all);
-  //   expect(keys.length).toBe(1);
-  //   expect(all[keys[0]].text).toEqual('foo');
-  // });
-
-  // it('get list with items', function() {
-  //
-  //   actions.fetchList()
-  //     .then(result => {
-  //       var list = productStore.getList();
-  //       expect(list).toEqual([]);
-  //
-  //     });
-  //
-  //
-  // });
-
-
 
 });

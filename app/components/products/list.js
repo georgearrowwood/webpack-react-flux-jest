@@ -10,7 +10,6 @@ export default class Products extends Component {
   }
 
   renderProduct(product) {
-    console.log(this);
     return (
       <li key={product.id}>
         {product.id} - {product.title} :
