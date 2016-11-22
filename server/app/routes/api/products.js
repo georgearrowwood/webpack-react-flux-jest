@@ -11,10 +11,9 @@ function newId() {
 }
 
 router.get('/api/products', function(req, res, next) {
-  setTimeout(()=>{
-  res.send({products: _products});
-  }, 2000
-  )
+  setTimeout(() => {
+    res.send({products: _products});
+  }, 700);
 });
 
 router.post('/api/products', function(req, res, next) {

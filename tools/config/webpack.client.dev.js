@@ -19,7 +19,7 @@ const config = {
   },
   module: {
     loaders: [
-      { test: /\.js$/, loaders: ['babel-loader','jshint-loader'], exclude: /node_modules/ },
+      { test: /\.js$/, loaders: ['babel-loader'], exclude: /node_modules/ },
       {
         test: /\.css$/,
         loader: "style!css"
