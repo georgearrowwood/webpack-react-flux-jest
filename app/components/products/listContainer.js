@@ -17,7 +17,7 @@ export default class ProductsContainer extends Component {
   }
 
   componentWillMount() {
-    productsActions.fetchList();
+    setTimeout(productsActions.fetchList, 0);
   }
 
   _onChange() {

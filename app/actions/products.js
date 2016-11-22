@@ -1,5 +1,6 @@
 import dispatcher from '../utils/dispatcher';
 import productConstants from '../constants/products';
+import pageConstants from '../constants/page';
 import productsApi from '../api/products';
 
 export default {
@@ -7,6 +8,9 @@ export default {
    * @param  {string} text
    */
   create: function(product) {
+    dispatcher.dispatch({
+      actionType: pageConstants.PAGE_LOADING_STARTED
+    });
     if (product && product.title) {
       productsApi.create(product)
         .then(result => {
@@ -18,11 +22,17 @@ export default {
   },
 
   fetchList: function() {
+    dispatcher.dispatch({
+      actionType: pageConstants.PAGE_LOADING_STARTED
+    });
     productsApi.getList()
       .then(result => {
         dispatcher.dispatch({
           actionType: productConstants.PRODUCTS_LIST_DATA_RECEIVED,
           products: result.data.products
+        });
+        dispatcher.dispatch({
+          actionType: pageConstants.PAGE_LOADING_COMPLETED
         });
       })
   },
@@ -31,7 +41,9 @@ export default {
    * @param  {integer} id
    */
   delete: function(id) {
-    console.log('d1', id);
+    dispatcher.dispatch({
+      actionType: pageConstants.PAGE_LOADING_STARTED
+    });
     if (Number.isInteger(id)) {
       productsApi.delete(id)
         .then(result => {

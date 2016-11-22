@@ -12,7 +12,9 @@
     "client:watch": "babel-node tools/hotLoadClient.js",
     "server:watch": "nodemon --watch server --watch app --exec npm run server:dev",
     "server:dev": "NODE_ENV=development BABEL_ENV=node config=development PORT=8080 node_modules/babel-cli/bin/babel-node.js server",
-    "test": "jest"
+    "test": "jest",
+    "lint-app": "./node_modules/.bin/eslint app",
+    "lint-server": "./node_modules/.bin/eslint server"
   },
   "author": "",
   "license": "MIT",
@@ -33,11 +35,13 @@
   "devDependencies": {
     "babel-cli": "^6.16.0",
     "babel-core": "^6.17.0",
+    "babel-eslint": "^7.1.1",
     "babel-jest": "^17.0.2",
     "babel-preset-es2015": "^6.16.0",
     "babel-preset-react": "^6.16.0",
     "babel-preset-stage-0": "^6.16.0",
     "css-loader": "^0.25.0",
+    "eslint": "^3.10.2",
     "extract-text-webpack-plugin": "^1.0.1",
     "jest": "^17.0.2",
     "react-hot-loader": "^3.0.0-beta.6",
