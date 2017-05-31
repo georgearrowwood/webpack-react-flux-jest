@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build:run": "npm run all:build && npm run server:run",
+    "all:run": "npm run all:build && npm run server:run",
     "all:build": "npm run server:build && npm run client:build",
     "server:run": "config=production nodemon dist/server.bundle",
     "server:build": "BABEL_ENV=node babel-node tools/buildServer.js",
@@ -28,9 +28,9 @@
     "express": "^4.14.0",
     "flux": "^3.1.0",
     "keymirror": "^0.1.1",
-    "react": "^15.3.2",
-    "react-dom": "^15.3.2",
-    "react-router": "^2.8.1"
+    "react": "15.3.2",
+    "react-dom": "15.3.2",
+    "react-router": "2.8.1"
   },
   "devDependencies": {
     "babel-cli": "^6.16.0",
