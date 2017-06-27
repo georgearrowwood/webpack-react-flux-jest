@@ -21,14 +21,14 @@ const config = {
     loaders: [
       { test: /\.js$/, loaders: ['babel-loader'], exclude: /node_modules/ },
       {
-        test: /\.css$/,
-        loader: "style!css"
+        test: /\.css$/, 
+        loader: "css-loader"
       }
     ],
   },
   devServer: {
     hot: true,
-    path: path.join(__dirname, '../../dist'),
+    contentBase: path.join(__dirname, '../../dist'),
     filename: 'bundle.js',
     publicPath: host + "/dist/",
   },

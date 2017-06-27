@@ -1,4 +1,4 @@
-require('./menu_style.css');
+// require('./menu_style.css');
 
 import React, { Component } from 'react';
 import { Link, browserHistory } from 'react-router'
