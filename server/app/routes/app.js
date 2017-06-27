@@ -9,7 +9,7 @@ import { StaticRouter } from 'react-router'
 
 import config from '../config'
 
-import App from '../../../app/'
+import App from '../../../app/app'
 // import routes from '../../../app/routes'
 
 router.get('*', (req, res) => {

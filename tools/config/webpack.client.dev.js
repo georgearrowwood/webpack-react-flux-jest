@@ -7,10 +7,10 @@ var host = "http://localhost:8888"
 const config = {
   context: path.resolve(__dirname, '../../app'),
   entry: [
-    'react-hot-loader/patch',
-    'webpack-dev-server/client?' + host,
-    'webpack/hot/only-dev-server',
-    "./client-dev.js",
+    // 'react-hot-loader/patch',
+    // 'webpack-dev-server/client?' + host,
+    // 'webpack/hot/only-dev-server',
+    "./client",
   ],
   output: {
     filename: "bundle.js",
@@ -40,7 +40,7 @@ const config = {
         'config': JSON.stringify('development'),
       }
     }),
-    new webpack.HotModuleReplacementPlugin()
+    // new webpack.HotModuleReplacementPlugin()
   ]
 };
 
