@@ -5,33 +5,26 @@ import React from 'react'
 import ReactDOMServer from 'react-dom/server'
 import { StaticRouter } from 'react-router'
 
-import config from '../config'; 
-// import Routes from '../../../app/routes';
-import App from '../../../app/app';
+import config from '../config'
 
-import fs from 'fs'
-const index = fs.readFileSync('./index.html', 'utf8')
+import App from '../../../app/'
 
 router.get('*', (req, res) => {
 
   const context = {}
 
-  const html = ReactDOMServer.renderToString(
+  const pageBody = ReactDOMServer.renderToString(
     <StaticRouter location={req.url} context={context}>
       <App/>
     </StaticRouter>
   )
 
-  if (context.url) {
-    res.writeHead(301, {Location: context.url})
-    res.end()
-  } else {
-    res.write(index.replace(
-        /<div id="root"><\/div>/,
-		`<div id="root">${html}</div>`
-    ));
-    res.end()
-  }
+  res.render('index', {
+    pageBody: pageBody,
+    title: config.title,
+    scriptUrl: config.scriptUrl,
+    styleUrl: config.styleUrl
+  })
 })
 
 module.exports = router;
