@@ -15,10 +15,10 @@ export default class LayoutContainer extends Component {
   }
 
   componentWillMount() {
-    switch(this.props.route.layout) {
+    switch(this.props.type) {
       case 'main':
-        Layout = MainLayout;
-        break;
+      default:
+        Layout = MainLayout
     }
   }
 

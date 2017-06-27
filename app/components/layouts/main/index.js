@@ -2,7 +2,7 @@ require('./style.css');
 
 import React, { Component } from 'react';
 
-import Menu from '../../main_menu';
+import Menu from '../../main-menu';
 
 export default class Layout extends Component {
   render() {
