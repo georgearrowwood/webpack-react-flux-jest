@@ -21,8 +21,11 @@ const config = {
     loaders: [
       { test: /\.js$/, loaders: ['babel-loader'], exclude: /node_modules/ },
       {
-        test: /\.css$/, 
-        loader: "css-loader"
+        test: /\.css$/,
+        loader: 'style-loader'
+      }, {
+        test: /\.css$/,
+        loader: 'css-loader'
       }
     ],
   },
@@ -30,11 +33,9 @@ const config = {
     hot: true,
     contentBase: path.join(__dirname, '../../dist'),
     filename: 'bundle.js',
-    publicPath: host + "/dist/",
-    headers: { "Access-Control-Allow-Origin": "*" }
+    publicPath: host + "/dist/"
   },
   plugins: [
-    new ExtractTextPlugin("style.css"),
     new webpack.DefinePlugin({
       'process.env': {
         'NODE_ENV': JSON.stringify('development'),

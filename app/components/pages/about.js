@@ -4,7 +4,7 @@ export default class Home extends Component {
   render() {
     return(
       <div>
-        About Page6
+        About Page76
       </div>
     );
   }

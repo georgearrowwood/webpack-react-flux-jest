@@ -17,8 +17,8 @@ const config = {
       { test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/ },
       {
         test: /\.css$/,
-        loader: ExtractTextPlugin.extract("style-loader", "css-loader")
-      },
+        loader: ExtractTextPlugin.extract("css-loader")
+      }
     ],
   },
   plugins: [
