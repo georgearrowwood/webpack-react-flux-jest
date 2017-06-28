@@ -1,20 +1,20 @@
-import { AppContainer } from 'react-hot-loader';
-import React from 'react'
-import {render} from 'react-dom'
-import {Router, match, browserHistory} from 'react-router';
+import React from 'react';
+import { render } from 'react-dom';
+import { BrowserRouter } from 'react-router-dom';
 
-const routes = require ('./routes').default;
+import Index from './client-index';
 
-var container = document.getElementById('app')
-
-render(
-  <AppContainer>
-    <Router history={browserHistory} routes={routes} />
-  </AppContainer>, container)
+render(<Index/>, document.getElementById('root'));
 
 if (module.hot) {
-    module.hot.accept('./routes', () => {
-      // key={Date.now()}
-      render(<Router history={browserHistory} routes={require('./routes').default} />, container)
-    });
+  module.hot.accept('./client-index', () => {
+    const NextApp = require('./client-index').default;
+    render(
+      React.createElement(NextApp),
+      document.getElementById('root')
+    );
+  });
 }
+// if (module.hot) {
+//     module.hot.accept('./client-index', () => { render(React.createElement(Index)) })
+//   }

@@ -7,10 +7,10 @@ var host = "http://localhost:8888"
 const config = {
   context: path.resolve(__dirname, '../../app'),
   entry: [
-    // 'react-hot-loader/patch',
-    // 'webpack-dev-server/client?' + host,
-    // 'webpack/hot/only-dev-server',
-    "./client",
+    'react-hot-loader/patch',
+    'webpack-dev-server/client?' + host,
+    'webpack/hot/only-dev-server',
+    "./client-dev",
   ],
   output: {
     filename: "bundle.js",
@@ -31,6 +31,7 @@ const config = {
     contentBase: path.join(__dirname, '../../dist'),
     filename: 'bundle.js',
     publicPath: host + "/dist/",
+    headers: { "Access-Control-Allow-Origin": "*" }
   },
   plugins: [
     new ExtractTextPlugin("style.css"),
@@ -40,7 +41,8 @@ const config = {
         'config': JSON.stringify('development'),
       }
     }),
-    // new webpack.HotModuleReplacementPlugin()
+    new webpack.NamedModulesPlugin(),
+    new webpack.HotModuleReplacementPlugin()
   ]
 };
 
