@@ -1,4 +1,6 @@
-exports[`test Render products list 1`] = `
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Render products list 1`] = `
 <div>
   List:
   <ul>
@@ -9,7 +11,8 @@ exports[`test Render products list 1`] = `
        :
       <a
         href="#"
-        onClick={[Function]}>
+        onClick={[Function]}
+      >
         X
       </a>
     </li>
@@ -20,7 +23,8 @@ exports[`test Render products list 1`] = `
        :
       <a
         href="#"
-        onClick={[Function]}>
+        onClick={[Function]}
+      >
         X
       </a>
     </li>

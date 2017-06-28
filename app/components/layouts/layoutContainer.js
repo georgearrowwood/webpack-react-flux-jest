@@ -42,7 +42,7 @@ class LayoutContainer extends Component {
 }
 
 LayoutContainer.propTypes = {
-  children: PropTypes.object,
+  children: PropTypes.array,
   name: PropTypes.string
 }
 

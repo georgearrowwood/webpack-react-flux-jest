@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 
 import PropTypes from 'prop-types'
 
-class AddProductForm extends Component {
+class AddProduct extends Component {
   render () {
     return (
       <div>
@@ -18,10 +18,10 @@ class AddProductForm extends Component {
   }
 }
 
-AddProductForm.propTypes = {
-  handleTitleChange: PropTypes.function,
-  titleValue: PropTypes.array,
-  addHandle: PropTypes.array
+AddProduct.propTypes = {
+  handleTitleChange: PropTypes.func,
+  titleValue: PropTypes.string,
+  addHandle: PropTypes.func
 }
 
-export default AddProductForm
+export default AddProduct

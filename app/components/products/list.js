@@ -31,7 +31,7 @@ class Products extends Component {
 }
 
 Products.propTypes = {
-  deleteProductHandler: PropTypes.function,
+  deleteProductHandler: PropTypes.func,
   products: PropTypes.array
 }
 

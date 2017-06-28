@@ -1,13 +1,17 @@
-exports[`test Render product add form 1`] = `
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Render product add form 1`] = `
 <div>
   Add Product:
   <div>
     <input
       onChange={undefined}
       type="text"
-      value={undefined} />
+      value={undefined}
+    />
     <button
-      onClick={undefined}>
+      onClick={undefined}
+    >
       Add
     </button>
   </div>

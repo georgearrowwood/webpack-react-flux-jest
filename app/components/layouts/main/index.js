@@ -20,8 +20,8 @@ class Layout extends Component {
 }
 
 Layout.propTypes = {
-  isLoading: PropTypes.boolean,
-  children: PropTypes.object
+  isLoading: PropTypes.bool,
+  children: PropTypes.array
 }
 
 export default Layout
