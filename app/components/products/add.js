@@ -1,19 +1,27 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 
-export default class AddProductForm extends Component {
+import PropTypes from 'prop-types'
 
-  render(){
+class AddProductForm extends Component {
+  render () {
     return (
       <div>
         Add Product:
         <div>
-          <input type="text" onChange={this.props.handleTitleChange} value={this.props.titleValue} />
+          <input type='text' onChange={this.props.handleTitleChange} value={this.props.titleValue} />
           <button onClick={this.props.addHandle}>
             Add
           </button>
         </div>
       </div>
-    );
-  };
+    )
+  }
+}
 
-};
+AddProductForm.propTypes = {
+  handleTitleChange: PropTypes.function,
+  titleValue: PropTypes.array,
+  addHandle: PropTypes.array
+}
+
+export default AddProductForm

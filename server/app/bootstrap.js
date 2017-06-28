@@ -1,14 +1,14 @@
 import path from 'path'
 import Express from 'express'
-import exphbs  from 'express-handlebars'
+import exphbs from 'express-handlebars'
+
+import bodyParser from 'body-parser'
 
 const server = Express()
 
-import bodyParser from 'body-parser';
-
 server
-  .use( bodyParser.json())       // to support JSON-encoded bodies
-  .use(bodyParser.urlencoded({     // to support URL-encoded bodies
+  .use(bodyParser.json())
+  .use(bodyParser.urlencoded({
     extended: true
   }))
   .engine('.hbs', exphbs({
@@ -22,4 +22,4 @@ server
   // React app routes
   .use('/', require('./routes/app'))
 
-export default server;
+export default server

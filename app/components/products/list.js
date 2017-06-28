@@ -1,27 +1,24 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 
-import productsStore from '../../stores/products';
+import PropTypes from 'prop-types'
 
-export default class Products extends Component {
-
-  constructor(){
-    super();
-    this.renderProduct = this.renderProduct.bind(this);
+class Products extends Component {
+  constructor () {
+    super()
+    this.renderProduct = this.renderProduct.bind(this)
   }
 
-  renderProduct(product) {
+  renderProduct (product) {
     return (
       <li key={product.id}>
         {product.id} - {product.title} :
-        <a
-          href="#"
-          onClick={e => this.props.deleteProductHandler(e, product.id)}
+        <a href='#' onClick={e => this.props.deleteProductHandler(e, product.id)}
         >X</a>
       </li>
-    );
-  };
+    )
+  }
 
-  render() {
+  render () {
     return (
       <div>
         List:
@@ -29,7 +26,13 @@ export default class Products extends Component {
           {this.props.products.map(this.renderProduct)}
         </ul>
       </div>
-    );
-  };
+    )
+  }
+}
 
-};
+Products.propTypes = {
+  deleteProductHandler: PropTypes.function,
+  products: PropTypes.array
+}
+
+export default Products

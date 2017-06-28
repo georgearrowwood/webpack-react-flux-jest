@@ -1,43 +1,42 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 
-import ProductsList from './list';
-import productsStore from '../../stores/products';
-import productsActions from '../../actions/products';
+import ProductsList from './list'
+import productsStore from '../../stores/products'
+import productsActions from '../../actions/products'
 
-function getProductsList() {
-  return {products: productsStore.getList()};
+function getProductsList () {
+  return {products: productsStore.getList()}
 }
 
 export default class ProductsContainer extends Component {
-
-  constructor() {
-    super();
+  constructor () {
+    super()
     this._onChange = this._onChange.bind(this)
-    this.state = getProductsList();
+    this.state = getProductsList()
   }
 
-  componentWillMount() {
-    setTimeout(productsActions.fetchList, 0);
+  componentWillMount () {
+    setTimeout(productsActions.fetchList, 0)
   }
 
-  _onChange() {
-    this.setState(getProductsList());
+  _onChange () {
+    this.setState(getProductsList())
   }
 
-  componentDidMount() {
-    productsStore.addChangeListener(this._onChange);
+  componentDidMount () {
+    productsStore.addChangeListener(this._onChange)
   }
 
-  componentWillUnmount() {
-    productsStore.removeChangeListener(this._onChange);
+  componentWillUnmount () {
+    productsStore.removeChangeListener(this._onChange)
   }
 
-  deleteProductHandler(e, id) {
-    e.preventDefault();
-    productsActions.delete(id);
+  deleteProductHandler (e, id) {
+    e.preventDefault()
+    productsActions.delete(id)
   }
 
-  render() {
+  render () {
     return (
       <ProductsList
         products={this.state.products}

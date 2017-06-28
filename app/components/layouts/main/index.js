@@ -1,14 +1,15 @@
-require('./style.css');
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 
-import React, { Component } from 'react';
+import Menu from '../../main-menu'
 
-import Menu from '../../main-menu';
+require('./style.css')
 
-export default class Layout extends Component {
-  render() {
+class Layout extends Component {
+  render () {
     return (
       <div>
-        <Menu/>
+        <Menu />
         {this.props.isLoading &&
           <span> Loading... </span>
         }
@@ -17,3 +18,10 @@ export default class Layout extends Component {
     )
   }
 }
+
+Layout.propTypes = {
+  isLoading: PropTypes.boolean,
+  children: PropTypes.object
+}
+
+export default Layout
