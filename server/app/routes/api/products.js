@@ -27,7 +27,7 @@ router.post('/api/products', (req, res, next) => {
 
 router.delete('/api/products/:id', (req, res, next) => {
   console.log('r', req.params.id)
-  _products = _products.filter(item => item.id !== req.params.id)
+  _products = _products.filter(item => item.id !== parseInt(req.params.id))
   console.log('rr', _products)
   res.send({success: true})
 })

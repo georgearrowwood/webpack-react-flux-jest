@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
-import ProductsList from '../products/listContainer'
-import AddProductForm from '../products/addContainer'
+import ProductsList from '../products/list'
+import AddProduct from '../products/add'
 
 export default class Home extends Component {
   render () {
@@ -10,7 +10,7 @@ export default class Home extends Component {
         Products Page:
         <div>
           <ProductsList />
-          <AddProductForm />
+          <AddProduct />
         </div>
       </div>
     )

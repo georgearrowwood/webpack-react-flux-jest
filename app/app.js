@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import { Route } from 'react-router-dom'
 
-import Layout from './components/layouts/LayoutContainer'
+import Layout from './components/layouts'
 
 import Home from './components/pages/home'
 import About from './components/pages/about'
