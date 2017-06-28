@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 
-import productsActions from '../../actions/products'
-import AddProductForm from './add'
+import productsActions from '../../../actions/products'
+import AddProductView from './view'
 
-export default class AddProductFormContainer extends Component {
+export default class AddProductContainer extends Component {
   constructor (props) {
     super(props)
     this.state = {title: ''}
@@ -22,7 +22,7 @@ export default class AddProductFormContainer extends Component {
 
   render () {
     return (
-      <AddProductForm
+      <AddProductView
         handleTitleChange={this.onTitleChange}
         addHandle={this.formSubmitHandler}
         titleValue={this.state.title}

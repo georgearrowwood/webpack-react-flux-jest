@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 
-import ProductsList from './list'
-import productsStore from '../../stores/products'
-import productsActions from '../../actions/products'
+import ProductsListView from './view'
+import productsStore from '../../../stores/products'
+import productsActions from '../../../actions/products'
 
 function getProductsList () {
   return {products: productsStore.getList()}
@@ -38,7 +38,7 @@ export default class ProductsContainer extends Component {
 
   render () {
     return (
-      <ProductsList
+      <ProductsListView
         products={this.state.products}
         deleteProductHandler={this.deleteProductHandler}
       />
