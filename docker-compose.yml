@@ -1,0 +1,13 @@
+version: '3'
+services:
+  server:
+    build:
+      context: ./
+      dockerfile: dev/Dockerfile
+    ports:
+     - "8090:8090"
+     - "8898:8898"
+    volumes:
+     - ./:/srv
+     - ./dev/.bash_history:/root/.ash_history
+    env_file: dev/.local.env

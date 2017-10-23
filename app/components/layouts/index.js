@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
-import pageStore from '../../stores/page'
+import pageStore from './store'
 import MainLayout from './main'
 
 class LayoutContainer extends Component {

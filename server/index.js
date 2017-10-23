@@ -1,6 +1,9 @@
-import server from './app/bootstrap'
+import logger from './modules/logger';
 
-let port = process.env.PORT
+import server from './bootstrap';
+
+const port = process.env.PORT;
+
 server.listen(port, () => {
-  console.log('Server is listening at %s', port)
-})
+  logger.info(`Server is listening at ${port}`);
+});

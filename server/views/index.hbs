@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{title}}</title>
+    <base href="/">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    {{#if styleUrl}}
+      <link rel="stylesheet" type="text/css" href="{{styleUrl}}">
+    {{/if}}
+  </head>
+  <body>
+    <div id="root">{{{pageBody}}}</div>
+    <script>
+      window.PRELOADED_STATE = {{{preloadedState}}}
+    </script>
+    {{#if scriptUrl }}
+      <script src="{{scriptUrl}}" defer></script>
+    {{/if}}
+  </body>
+</html>
