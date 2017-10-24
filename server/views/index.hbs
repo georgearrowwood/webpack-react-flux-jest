@@ -11,9 +11,6 @@
   </head>
   <body>
     <div id="root">{{{pageBody}}}</div>
-    <script>
-      window.PRELOADED_STATE = {{{preloadedState}}}
-    </script>
     {{#if scriptUrl }}
       <script src="{{scriptUrl}}" defer></script>
     {{/if}}

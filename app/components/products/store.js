@@ -1,43 +1,37 @@
-import {EventEmitter} from 'events'
-import dispatcher from '../../modules/dispatcher'
-import productConstants from './constants'
-
-let _products = []
+import { EventEmitter } from 'events';
+import dispatcher from '../../modules/dispatcher';
+import productConstants from './constants';
 
 class ProductsStore extends EventEmitter {
-  constructor () {
-    super()
-    this.dispatchToken = dispatcher.register(this.dispatcherCallback.bind(this))
+  constructor() {
+    super();
+    this.products = [];
+    this.dispatchToken = dispatcher.register(this.dispatcherCallback.bind(this));
   }
 
-  getList () {
-    return _products
+  getList() {
+    return this.products;
   }
 
-  emitChange () {
-    this.emit('change')
+  addChangeListener(callback) {
+    this.on('change', callback);
   }
 
-  // Add change listener
-  addChangeListener (callback) {
-    this.on('change', callback)
+  removeChangeListener(callback) {
+    this.removeListener('change', callback);
   }
 
-  // Remove change listener
-  removeChangeListener (callback) {
-    this.removeListener('change', callback)
-  }
-
-  dispatcherCallback (action) {
-    // console.log('disp acts', action);
+  dispatcherCallback(action) {
     switch (action.actionType) {
       case productConstants.PRODUCTS_LIST_DATA_RECEIVED:
-        _products = action.products
-        this.emitChange()
-        break
+        this.products = action.products;
+        this.emit('change');
+        break;
+      default:
+        break;
     }
-    return true
+    return true;
   }
-};
+}
 
-export default new ProductsStore()
+export default new ProductsStore();

@@ -1,15 +1,10 @@
-import services from '../../modules/services'
+import services from '../../modules/services';
 
-export default {
-  getList: function () {
-    return services().get('/api/products')
-  },
-
-  create: function (product) {
-    return services().post('/api/products', {product: product})
-  },
-
-  delete: function (id) {
-    return services().delete('/api/products/' + id)
-  }
-}
+export default (options) => {
+  const instance = services(options);
+  return {
+    getList: () => instance.get('/api/products'),
+    create: product => instance.post('/api/products', { product }),
+    delete: id => instance.delete(`/api/products/${id}`),
+  };
+};

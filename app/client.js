@@ -1,14 +1,21 @@
-import React, { Component } from 'react'
-import { BrowserRouter } from 'react-router-dom'
+import React from 'react';
+import { hydrate } from 'react-dom';
+import cookie from 'react-cookies';
 
-import App from './app'
+import Index from './app';
+import { auth } from './components/auth/actions';
 
-export default class Index extends Component {
-  render () {
-    return (
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
+const userToken = cookie.load('userToken');
+if (userToken) auth();
+
+hydrate(<Index />, document.getElementById('root'))
+
+if (module.hot) {
+  module.hot.accept('./client', () => {
+    const NextApp = require('./client').default
+    render(
+      React.createElement(NextApp),
+      document.getElementById('root')
     )
-  }
+  })
 }
