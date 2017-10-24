@@ -1,5 +1,7 @@
 import { Component } from 'react';
 import { withRouter } from 'react-router';
+import PropTypes from 'prop-types';
+
 import { logoutUser } from './actions';
 
 class LogOut extends Component {
@@ -10,5 +12,9 @@ class LogOut extends Component {
     return null;
   }
 }
+
+LogOut.propTypes = {
+  history: PropTypes.shape().isRequired,
+};
 
 export default withRouter(LogOut);
