@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Render products list 1`] = `
+<Products
+  deleteProductHandler={[Function]}
+  products={
+    Array [
+      Object {
+        "id": 1,
+        "title": "test product 1",
+      },
+      Object {
+        "id": 2,
+        "title": "test product 2",
+      },
+    ]
+  }
+>
+  <div>
+    List:
+    <ul>
+      <li
+        key="1"
+      >
+        1
+         - 
+        test product 1
+         :
+        <a
+          href="/product/delete"
+          onClick={[Function]}
+        >
+          X
+        </a>
+      </li>
+      <li
+        key="2"
+      >
+        2
+         - 
+        test product 2
+         :
+        <a
+          href="/product/delete"
+          onClick={[Function]}
+        >
+          X
+        </a>
+      </li>
+    </ul>
+  </div>
+</Products>
+`;

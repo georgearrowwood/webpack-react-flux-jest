@@ -75,7 +75,7 @@
   },
   "jest": {
     "verbose": true,
-    "setupFiles": ["./__tests__/setupTests.js"],
+    "setupFiles": ["./dev/jest-setup/setup.js"],
     "snapshotSerializers": [
       "enzyme-to-json/serializer"
     ]
