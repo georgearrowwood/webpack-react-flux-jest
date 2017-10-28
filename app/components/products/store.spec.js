@@ -1,9 +1,9 @@
-jest.dontMock('./../app/stores/products');
-jest.dontMock('./../app/constants/products');
+import dispatcher from '../app/modules/dispatcher';
+import productStore from '../app/components/products/store';
+import productConstants from '../app/components/products/constants';
 
-import dispatcher from '../app/utils/dispatcher';
-import productStore from '../app/stores/products';
-import productConstants from '../app/constants/products';
+// jest.dontMock('./../app/stores/products');
+// jest.dontMock('./../app/constants/products');
 
 describe('TodoStore', function() {
 
