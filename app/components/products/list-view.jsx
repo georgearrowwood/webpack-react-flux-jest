@@ -1,5 +1,4 @@
 import React from 'react';
-
 import PropTypes from 'prop-types';
 
 const deleteHandler = (e, id, deleteProductHandler) => {
@@ -9,7 +8,7 @@ const deleteHandler = (e, id, deleteProductHandler) => {
 
 const renderProduct = deleteProductHandler => product => (
   <li key={product.id}>
-    {product.id} - {product.title} :
+    <span>{product.id} - {product.title} :</span>
     <a
       href="/product/delete"
       onClick={e => deleteHandler(e, product.id, deleteProductHandler)}

@@ -13,6 +13,7 @@
     "server-watch": "nodemon --watch server --watch app --exec npm run server-dev",
     "server-dev": "NODE_ENV=development BABEL_ENV=node config=development PORT=8090 node_modules/babel-cli/bin/babel-node.js server",
     "test": "jest",
+    "test-cov": "jest --coverage",
     "lint-app": "./node_modules/.bin/eslint app",
     "lint-server": "./node_modules/.bin/eslint server",
     "lint": "eslint server app"
@@ -78,6 +79,7 @@
     "setupFiles": ["./dev/jest-setup/setup.js"],
     "snapshotSerializers": [
       "enzyme-to-json/serializer"
-    ]
+    ],
+    "collectCoverageFrom" : ["**/app/**.{js,jsx}", "**/server/**.{js,jsx}"]
   }
 }

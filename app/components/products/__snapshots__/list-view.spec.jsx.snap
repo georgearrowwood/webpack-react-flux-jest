@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Render products list 1`] = `
+exports[`Renders products component with properties 1`] = `
 <Products
   deleteProductHandler={[Function]}
   products={
@@ -22,10 +22,12 @@ exports[`Render products list 1`] = `
       <li
         key="1"
       >
-        1
-         - 
-        test product 1
-         :
+        <span>
+          1
+           - 
+          test product 1
+           :
+        </span>
         <a
           href="/product/delete"
           onClick={[Function]}
@@ -36,10 +38,12 @@ exports[`Render products list 1`] = `
       <li
         key="2"
       >
-        2
-         - 
-        test product 2
-         :
+        <span>
+          2
+           - 
+          test product 2
+           :
+        </span>
         <a
           href="/product/delete"
           onClick={[Function]}
