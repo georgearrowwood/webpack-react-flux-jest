@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ProductsList Container Renders and triggers change manually, loading products from store 1`] = `
+<Products
+  deleteProductHandler={[Function]}
+  products={Array []}
+/>
+`;
+
+exports[`ProductsList Container Renders component and triggers action fetchList on did mount 1`] = `
+<Products
+  deleteProductHandler={[Function]}
+  products={Array []}
+/>
+`;

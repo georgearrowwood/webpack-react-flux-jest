@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Renders products component with properties 1`] = `
+exports[`ProductsList View Renders products component with properties 1`] = `
 <Products
   deleteProductHandler={[Function]}
   products={

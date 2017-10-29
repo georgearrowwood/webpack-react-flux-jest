@@ -70,16 +70,22 @@
     "react-hot-loader": "3.1.1",
     "react-test-renderer": "16.0.0",
     "sass-loader": "6.0.6",
+    "sinon": "^4.0.2",
     "style-loader": "0.19.0",
     "webpack": "3.8.1",
     "webpack-dev-server": "2.9.3"
   },
   "jest": {
     "verbose": true,
-    "setupFiles": ["./dev/jest-setup/setup.js"],
+    "setupFiles": [
+      "./dev/jest-setup/setup.js"
+    ],
     "snapshotSerializers": [
       "enzyme-to-json/serializer"
     ],
-    "collectCoverageFrom" : ["**/app/**.{js,jsx}", "**/server/**.{js,jsx}"]
+    "collectCoverageFrom": [
+      "**/app/**.{js,jsx}",
+      "**/server/**.{js,jsx}"
+    ]
   }
 }

@@ -13,15 +13,12 @@ export default class ProductsContainer extends Component {
     super();
     this.onChange = this.onChange.bind(this);
     this.state = {
-      products: productsStore.getList(),
+      products: [],
     };
   }
 
-  componentWillMount() {
-    if (process.env.ENV === 'browser') productsActions.fetchList();
-  }
-
   componentDidMount() {
+    productsActions.fetchList();
     productsStore.addChangeListener(this.onChange);
   }
 
