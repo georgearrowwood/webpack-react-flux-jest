@@ -5,9 +5,8 @@ services:
       context: ./
       dockerfile: dev/Dockerfile
     ports:
-     - "8090:8090"
-     - "8898:8898"
+     - "8080:8080"
+     - "8888:8888"
     volumes:
      - ./:/srv
      - ./dev/.bash_history:/root/.ash_history
-    env_file: dev/.local.env

@@ -4,12 +4,15 @@ WORKDIR /srv
 
 COPY . .
 RUN npm i
-RUN npm run all-build
 
 RUN npm run lint
 RUN npm test
 
-RUN rm -rf webpack __tests__ node_modules
+RUN npm run all-build
+
+RUN npm prune --production
+
+RUN rm -rf webpack __tests__ dev .babelrc
 
 RUN chown -R node:node /srv
 USER node

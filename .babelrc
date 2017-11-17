@@ -5,7 +5,7 @@
     "node": {
       "plugins": [
         [
-          "babel-plugin-transform-require-ignore", { "extensions": [".scss"] }
+          "babel-plugin-transform-require-ignore", { "extensions": [".scss", ".css"] }
         ]
       ]
     }
